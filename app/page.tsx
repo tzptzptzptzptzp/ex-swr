@@ -1,21 +1,10 @@
 "use client";
 
-import useSWR from "swr";
-
-type User = {
-  id: string;
-  name: string;
-  email: string;
-};
-
-async function fetcher(key: string) {
-  return fetch(key).then((res) => res.json() as Promise<User | null>);
-}
-
-const API_URL = "https://jsonplaceholder.typicode.com/users/1";
+import { useUser } from "@/src/hooks/useUser";
 
 export default function Home() {
-  const { data, error, isLoading } = useSWR(API_URL, fetcher);
+  const { user, isError, isLoading } = useUser(1);
+  if (isError) return <div>failed to load</div>;
   return (
     <main className="flex items-center justify-center w-screen h-screen bg-amber-200">
       <div className="flex flex-col gap-2 p-20 rounded-3xl bg-white shadow-md text-center">
@@ -24,8 +13,8 @@ export default function Home() {
           <p>Loading...</p>
         ) : (
           <>
-            <p className="text-2xl">name: {data?.name}</p>
-            <p>email: {data?.email}</p>
+            <p className="text-2xl">name: {user?.name}</p>
+            <p>email: {user?.email}</p>
           </>
         )}
       </div>
