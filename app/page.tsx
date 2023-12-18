@@ -4,6 +4,7 @@ import { useUser } from "@/src/hooks/useUser";
 
 export default function Home() {
   const { user, isError, isLoading } = useUser(1);
+  if (isError) return <div>failed to load</div>;
   return (
     <main className="flex items-center justify-center w-screen h-screen bg-amber-200">
       <div className="flex flex-col gap-2 p-20 rounded-3xl bg-white shadow-md text-center">
