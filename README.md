@@ -21,3 +21,29 @@ npm を使用しています
 npm
 npm run dev // 開発用サーバー起動
 ```
+
+---
+
+## Introduction
+
+This is a sample of API retrieval using Next.js and SWR.  
+We efficiently fetch data from {JSON} Placeholder using SWR.
+
+## Technologies Used
+
+Frontend
+
+- [SWR](https://swr.vercel.app/)
+- [Next.js](https://nextjs.org/)
+- [React](https://reactjs.org/)
+- [TypeScript](https://www.typescriptlang.org/)
+- [Tailwind CSS](https://tailwindcss.com/)
+
+## Development Procedure
+
+We use npm for development.
+
+```bash
+npm
+npm run dev // Start the development server
+```
